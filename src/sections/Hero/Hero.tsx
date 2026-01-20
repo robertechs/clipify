@@ -5,9 +5,9 @@ import { FaEye } from "react-icons/fa6";
 import { FaCommentAlt } from "react-icons/fa";
 import Link from "next/link";
 
-export const twitter = "https://x.com/clipify_xyz";
-export const chart = "https://x.com/clipify_xyz";
-export const buy = "https://x.com/clipify_xyz";
+export const twitter = "https://x.com/ClipifySolana";
+export const chart = "https://dexscreener.com";
+export const buy = "https://pump.fun";
 export const app = "/stream";
 
 export default function Hero() {

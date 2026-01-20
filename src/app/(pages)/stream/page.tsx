@@ -339,7 +339,7 @@ function StreamContent() {
 				<div className={styles.input}>
 					<Image src="/pumpfun.png" alt="pumpfun" width={20} height={20} />
 					<input type="text" placeholder="Enter a Pump.fun stream link" value={inputUrl} onChange={(e) => setInputUrl(e.target.value)} />
-					<Link href={`/stream?url=${inputUrl}`}><button>Try another clip</button></Link>
+					<Link href={`/stream?url=${inputUrl}`}><button>{clips.length > 0 ? "Try another" : "Clip it"}</button></Link>
 				</div>
 				<div className={styles.editor}>
 					<div className={styles.selectedVideo}>
@@ -374,15 +374,17 @@ function StreamContent() {
 				</div>
 			</div>
 
-			<div className={styles.videoPreview}>
-				<div className={styles.clips}>
-					{clips.map((c, i) => (
-						<div key={i} className={`${loadedClip == c.url ? styles.selected : ''} ${styles.videoContainer}`} onClick={() => loadClip(c.url)} >
-							<img src={c.thumbnail} alt={c.name} width={192} height={108} className={styles.thumbnail} />
-						</div>
-					))}
+			{clips.length > 0 && (
+				<div className={styles.videoPreview}>
+					<div className={styles.clips}>
+						{clips.map((c, i) => (
+							<div key={i} className={`${loadedClip == c.url ? styles.selected : ''} ${styles.videoContainer}`} onClick={() => loadClip(c.url)} >
+								<img src={c.thumbnail} alt={c.name} width={192} height={108} className={styles.thumbnail} />
+							</div>
+						))}
+					</div>
 				</div>
-			</div>
+			)}
 
 		</div>
 		</>

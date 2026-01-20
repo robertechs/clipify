@@ -5,14 +5,13 @@
 	gap: 24px;
 	
 	width: 100%;
-	max-width: 1400px;
 	margin: 0 auto;
 	padding-top: 72px;
 	padding-left: 24px;
 	padding-right: 24px;
 }
 .content {
-	flex: 1;
+	width: 100%;
 	max-width: 900px;
 	display: flex;
 	flex-direction: column;
