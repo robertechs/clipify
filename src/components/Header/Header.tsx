@@ -6,10 +6,10 @@ import { twitter, chart, buy } from '@/sections/Hero/Hero';
 export default function Header() {
 	return (
 		<div className={styles.header}>
-			<div className={styles.logo}>
+			<Link href="/" className={styles.logo}>
 				<Image src="/logo.png" alt="Logo" width={32} height={32} />
 				<h1>Clipify</h1>
-			</div>
+			</Link>
 
 			<div className={styles.nav}>
 				<Link href={twitter}>Twitter</Link>
