@@ -1,0 +1,166 @@
+.main {
+	width: 100%;
+	margin: 0 auto;
+	max-width: 1200px;
+}
+
+.title {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	gap: 14px;
+}
+
+.icon {
+	font-size: 54px;
+	color: #2AD986;
+}
+.title > h1 {
+	font-weight: 500;
+	font-size: 44px;
+	letter-spacing: -1px;
+}
+.title > p {
+	font-weight: 400;
+	font-size: 18px;
+	opacity: .5;
+	letter-spacing: -.5px;
+	text-align: center;
+}
+
+.clips {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 16px;
+	margin-top: 32px;
+}
+.clips > div, .clips > a {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 16px;
+	position: relative;
+	border-radius: 6px;
+	border: 1px solid rgba(42, 217, 135, 0.4);
+	width: 100%;
+	overflow: hidden;
+}
+
+.clips > a::after {
+	content: "See the clip";
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(10, 52, 33, .7);
+	backdrop-filter: blur(2px);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: 500;
+	color: white;
+	
+	transition: .4s;
+	mask-image: linear-gradient(to top, black 20%, rgba(0, 0, 0, 0.2) 100%);
+	opacity: 0;
+	transform: translateY(100%);
+}
+
+.clips > div > video, .clips > a:not(.button) > video {
+	width: 100%;
+	height: auto;
+}
+.clips > div > p, .clips > a:not(.button) > p {
+	position: absolute;
+	bottom: 12px;
+	left: 50%;
+	transform: translate(-50%, 0%);
+
+	font-weight: 500;
+	font-size: 16px;
+	letter-spacing: -.5px;
+	padding: 4px 8px;
+	background: rgba(47, 120, 67, 0.7);
+	backdrop-filter: blur(10px);
+	border: 1px solid #2F7843;
+	border-radius: 6px;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+
+	text-wrap: nowrap;
+}
+
+.clips > .button {
+	width: 100%;
+	height: 100%;
+	aspect-ratio: 0.71111111111 !important;
+	background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.2));
+	backdrop-filter: blur(10px);
+	border: 1px solid rgba(255, 255, 255, 0.15);
+	border-radius: 6px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	gap: 0px;
+	transition: .25s;
+}
+.clips > .button > p:first-child {
+	font-size: 44px;
+	font-weight: 500;
+	text-align: center;
+}
+.clips > .button > p:last-child {
+	font-size: 24px;
+	font-weight: 500;
+	text-align: center;
+
+}
+
+.clips > .button:hover {
+	box-shadow: 0 0 42px 0 rgba(255, 255, 255, 0.2);
+}
+
+@keyframes slide {
+	0% {
+		transform: translateX(0);
+	}
+	100% {
+		transform: translateX(-50%);
+	}
+}
+
+.hidden {
+	display: none !important;
+}
+
+@media (max-width: 768px) {
+	.main {
+		padding: 32px 12px;
+	}
+
+	.title > h1 {
+		font-size: 32px;
+	}
+	
+	.title > p {
+		font-size: 15px;
+	}
+
+	.clips {
+		width: 600%;
+		animation: slide 12s linear infinite; 
+		overflow: hidden;
+	}
+
+	.hidden {
+		display: flex !important;
+	}
+
+}

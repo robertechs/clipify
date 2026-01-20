@@ -1,0 +1,148 @@
+.footer {
+	width: 100%;
+	margin: 0 auto;
+	max-width: 1200px;
+	padding: 100px 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.content {
+	width: 100%;
+	background: linear-gradient(-150deg, rgba(42, 217, 135, 0.2), rgba(42, 217, 135, 0.05));
+	box-shadow: 0 0 832px -10px rgba(42, 217, 135, 0.2);
+	border: 1px solid rgba(255, 255, 255, 0.15);
+	padding: 124px;
+	border-radius: 14px;
+
+	position: relative;
+	overflow: hidden;
+}
+.text > h1 {
+	font-size: 54px;
+	font-weight: 500;
+	letter-spacing: -1px;
+	line-height: 1.1;
+}
+.text > p {
+	font-size: 18px;
+	font-weight: 400;
+	opacity: .5;
+	letter-spacing: -.5px;
+	margin-top: 14px;
+	margin-bottom: 24px;
+}
+
+.text > button {
+	border: none;
+	padding: 7px 18px;
+	background: linear-gradient(to right, #00904C, #2F7843);
+	border-radius: 10px;
+	border: 1px solid rgba(255, 255, 255, 0.15);
+	transition: .25s;
+}
+.text > button:hover {
+	box-shadow: 0 0 32px 0 rgba(0, 144, 77, 0.4);
+}
+
+.group {
+	position: absolute;
+	top: 50%;
+	right: 0;
+
+	opacity: .3;
+	width: 60%;
+	height: auto;
+	transform: rotate(8deg) translate(20%, -45%);
+}
+
+.logo {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+}
+.logo > img {
+	height: 24px;
+	width: auto;
+}
+
+.logo h1 {
+	font-weight: 500;
+	font-size: 20px;
+	letter-spacing: -1px;
+}
+
+
+.navigation {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: 0px;
+	width: 100%;
+	margin-top: 44px;
+}
+
+.navigation > .links {
+	display: flex;
+	align-items: flex-start;
+	justify-content: flex-start;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.navigation p, .navigation a {
+	font-weight: 500;
+	font-size: 15px;
+}
+.navigation p {
+	opacity: .5;
+	margin-bottom: 6px;
+}
+.navigation a {
+	transition: .25s;
+}
+
+.navigation a:hover {
+	opacity: .5;
+}
+
+.copyright {
+	letter-spacing: -.5px;
+}
+
+
+
+@media (max-width: 768px) {
+	.footer {
+		padding: 44px 12px;
+	}
+
+	.content {
+		padding: 24px;
+	}
+
+	.content > .text > h1 {
+		font-size: 32px;
+	}
+	.content > .text > p {
+		font-size: 15px;
+		margin-bottom: 14px;
+	}
+
+	.group {
+		width: 95%;
+		transform: rotate(8deg) translate(20%, -50%);
+		opacity: .1;
+	}
+
+	.navigation {
+		margin-top: 14px;
+	}
+
+	.navigation > .links {
+		display: none;
+	}
+		
+}

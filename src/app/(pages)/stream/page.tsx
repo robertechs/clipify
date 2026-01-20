@@ -8,6 +8,7 @@ import { toast } from 'sonner';
 import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
+import Header from "@/components/Header/Header";
 
 
 function StreamContent() {
@@ -330,6 +331,8 @@ function StreamContent() {
 	const videoRef = useRef<HTMLVideoElement>(null);
 
 	return (
+		<>
+		<Header />
 		<div className={styles.page}>
 			<div className={styles.content}>
 
@@ -382,6 +385,7 @@ function StreamContent() {
 			</div>
 
 		</div>
+		</>
 	);
 }
 

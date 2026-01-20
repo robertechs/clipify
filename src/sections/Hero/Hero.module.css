@@ -1,0 +1,255 @@
+.hero {
+	width: 100%;
+	margin: 0 auto;
+	max-width: 1200px;
+
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: 0px;
+	padding: 100px 0px;
+
+	border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+@keyframes slideInLeft {
+	0% {
+		opacity: 0;
+		transform: translateX(-50%);
+	}
+	100% {
+		transform: translateX(0);
+	}
+}
+.content > h1 {
+	font-weight: 500;
+	font-size: 54px;
+	letter-spacing: -1px;
+	line-height: 1.1;
+	animation: slideInLeft .7s ease-in-out;
+	animation-delay: 0s;
+}
+.content > h1 > span {
+	color: rgba(42, 217, 135, 1);
+}
+.content > p {
+	font-weight: 400;
+	font-size: 20px;
+	letter-spacing: -.05px;
+	opacity: .4;
+	
+	margin-top: 14px;
+	margin-bottom: 32Px;
+
+	animation: slideInLeft 1s ease-in-out;
+}
+
+.buttons {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+
+	animation: fadeIn .7s ease-in-out;
+}
+
+.buttons > *:first-child > button {
+	border: none;
+	padding: 7px 18px;
+	background: linear-gradient(to right, #00904C, #2F7843);
+	border-radius: 10px;
+	border: 1px solid rgba(255, 255, 255, 0.15);
+	transition: .25s;
+	font-weight: 500;
+	font-size: 15px;
+}
+.buttons > *:first-child > button:hover {
+	box-shadow: 0 0 32px 0 rgba(0, 144, 77, 0.4);
+}
+
+.buttons > *:last-child > button {
+	border: none;
+	padding: 7px 18px;
+	background: transparent;
+	border-radius: 10px;
+	transition: .25s;
+	font-weight: 500;
+	font-size: 15px;
+	opacity: .4;
+}
+.buttons > *:last-child > button:hover {
+	opacity: 1;
+}
+
+.image {
+	position: relative;
+}
+.image > .clip {
+	width: 100%;
+	height: auto;
+	border-radius: 6px;
+	border: 1px solid rgba(42, 217, 135, 1);
+	z-index: 0;
+	animation: fadeIn 1s ease-in-out;
+	animation-delay: 0s;
+}
+
+@keyframes fadeIn {
+	0% {
+		transform: translateY(20px);
+		opacity: 0;
+	}
+	100% {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+
+.topLeft > p {
+	position: absolute;
+	top: 0;
+	left: 0;
+	transform: translate(-50%, -50%);
+}
+.topLeft > p:first-child {
+	transform: translate(-50%, -50%) rotate(6deg);
+}
+.topLeft > p:last-child {
+	margin-top: 22px;
+	transform: translate(-50%, -50%) rotate(-2deg);
+}
+
+.topRight > p {
+	position: absolute;
+	top: 0;
+	right: 0;
+	transform: translate(50%, -50%);
+}
+.topRight > p:first-child {
+	transform: translate(50%, -50%) rotate(6deg);
+}
+.topRight > p:last-child {
+	margin-top: 22px;
+	transform: translate(50%, -50%) rotate(-2deg);
+}
+
+.topLeft > p, .topRight > p {
+	font-weight: 500;
+	font-size: 16px;
+	letter-spacing: -.5px;
+	padding: 4px 8px;
+	background: rgba(47, 120, 67, 0.45);
+	backdrop-filter: blur(10px);
+	border: 1px solid #2F7843;
+	border-radius: 6px;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+
+	z-index: 2;
+}
+
+@keyframes float {
+	0% {
+		rotate: -2deg;
+	}
+	100% {
+		rotate: 2deg;
+	}
+}
+
+.topLeft > p:first-child, .topRight > p:last-child {
+	animation: float 3s ease-in-out infinite alternate;
+}
+.topLeft > p:last-child, .topRight > p:first-child {
+	animation: float 3s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes slideIn {
+	0% {
+		opacity: 0;
+		transform: translateY(-100%);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+.link {
+	width: 100%;
+
+	margin-top: 12px;
+
+	border: 1px solid rgba(255, 255, 255, 0.15);
+	background: rgba(255, 255, 255, 0.05);
+	padding: 12px 14px;
+	border-radius: 6px;
+	font-weight: 500;
+	font-size: 15px;
+	letter-spacing: -.3px;
+	opacity: 0;
+	transform: translateY(-100%);
+	animation: slideIn 0.7s ease-in-out forwards;
+	animation-delay: 0.3s;
+}
+.link > span {
+	opacity: 1;
+	mask-image: linear-gradient(to right, black, rgba(255, 255, 255, 0) 95%);
+}
+
+
+@media (max-width: 768px) {
+	.hero {
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		margin-top: 0Px;
+		padding-top: 44px;
+		gap: 64px;
+	}
+
+	.content {
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+	}
+
+	.content > h1 {
+		font-size: 32px;
+	}
+
+	.content > p {
+		font-size: 14px;
+		padding: 0 14px;
+	}
+	.content > p > br {
+		display: none;
+	}
+
+	.buttons {
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.image {
+		width: 85%;
+	}
+
+	.topLeft > p {
+		position: absolute;
+		top: 0;
+		left: 44px;
+		transform: translate(-50%, -50%);
+	}
+	.topRight > p {
+		position: absolute;
+		top: 0;
+		right: 14px;
+		transform: translate(50%, -50%);
+	}
+
+	.link {
+		overflow: hidden;
+	}
+}

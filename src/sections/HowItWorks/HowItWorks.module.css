@@ -1,0 +1,180 @@
+.howItWorks {
+	width: 100%;
+	margin: 0 auto;
+	max-width: 1200px;
+	padding: 100px 0px;
+}
+
+@keyframes slideInLeft {
+	0% {
+		opacity: 0;
+		transform: translateX(-50%);
+	}
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+@keyframes slideInRight {
+	0% {
+		opacity: 0;
+		transform: translateX(50%);
+	}
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+.head {
+	display: flex;
+	align-items: flex-end;
+	justify-content: space-between;
+	margin-bottom: 24px;
+
+}
+
+.left {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+
+	animation: slideInLeft .5s ease-in-out forwards;
+}
+
+.head > .left > h1 {
+	font-weight: 500;
+	font-size: 44px;
+	letter-spacing: -1px;
+}
+.head > .left > p {
+	font-weight: 400;
+	font-size: 18px;
+	opacity: .5;
+}
+
+.head > button {
+	font-size: 16px;
+	font-weight: 500;
+	padding: 6px 18px;
+	border-radius: 100px;
+	background: rgba(255, 255, 255, 0.1);
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	opacity: 0;
+	transform: translateX(50%);
+	animation: slideInRight .4s ease-in-out forwards;
+	animation-delay: 1s;
+}
+
+.content {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 16px;
+}
+
+@keyframes slideIn {
+	0% {
+		opacity: 0;
+		transform: translateY(50%);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+.content > div {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	flex-direction: column;
+	gap: 10px;
+
+	padding: 8px;
+	border-radius: 8px;
+	background: rgba(255, 255, 255, 0.05) url("/frame/1.png");
+	backdrop-filter: blur(2px);
+	background-size: 100% auto;
+	background-position:top  center;
+	background-repeat: no-repeat;
+	/* background: rgba(255, 255, 255, 0.05); */
+	border: 1px solid rgba(255, 255, 255, 0.15);
+	height: 330px;
+
+	opacity: 0;
+}
+.content > div:nth-child(1) {
+	background-image: url("/frame/1.png");
+	transform: translateY(50%);
+	animation: slideIn .5s ease-in-out forwards;
+}
+.content > div:nth-child(2) {
+	background-image: url("/frame/2.png");
+
+	transform: translateY(50%);
+	animation: slideIn .5s ease-in-out forwards;
+	animation-delay: 0.3s;
+}
+.content > div:nth-child(3) {
+	background-image: url("/frame/3.png");
+	
+	transform: translateY(50%);
+	animation: slideIn .5s ease-in-out forwards;
+	animation-delay: 0.6s;
+}
+.text {
+	width: 100%;
+	padding: 8px;
+	border-radius: 8px;
+	background: rgba(255, 255, 255, 0.05);
+	border: 1px solid rgba(255, 255, 255, 0.15);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 0px;
+}
+.text h1 {
+	font-size: 18px;
+	font-weight: 500;
+}
+.text p {
+	font-size: 16px;
+	font-weight: 400;
+	opacity: .5;
+}
+
+
+@media (max-width: 768px) {
+	.howItWorks {
+		padding: 32px 12px;
+	}
+
+	.head {
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: flex-start;
+	}
+
+	.head .left > h1 {
+		font-size: 32px;
+	}
+	.head .left > p {
+		font-size: 15px;
+	}
+	.head > button {
+		margin-top: 14px;
+		font-size: 14px;
+	}
+
+	.content {
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.content > div {
+		width: 100%;
+	}
+}

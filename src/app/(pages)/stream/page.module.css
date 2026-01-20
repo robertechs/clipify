@@ -1,15 +1,19 @@
 .page {
 	display: flex;
 	align-items: flex-start;
-	justify-content: space-between;
+	justify-content: center;
+	gap: 24px;
 	
 	width: 100%;
-	max-width: 1200px;
+	max-width: 1400px;
 	margin: 0 auto;
 	padding-top: 72px;
+	padding-left: 24px;
+	padding-right: 24px;
 }
 .content {
-	width: 75%;
+	flex: 1;
+	max-width: 900px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -134,7 +138,8 @@
 }
 
 .videoPreview {
-	width: 25%;
+	width: 280px;
+	min-width: 280px;
 	height: calc(100vh - 69px);
 	display: flex;
 	flex-direction: column;

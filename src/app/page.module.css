@@ -1,114 +1,23 @@
 .page {
+	position: relative;
 	display: flex;
-	align-items: center;
-	justify-content: space-between;
 	flex-direction: column;
-	
-	width: 100%;
-	max-width: 1200Px;
-	padding-top: 72px;
-	margin: 0 auto;
-}
-
-.page > h1 {
-	font-size: 28px;
-	font-weight: 500;
-	letter-spacing: -1;
-	margin-bottom: 14px;
-}
-.page > h1 > span {
-	color: #2AD986;
-}
-.image {
-	width: 100%;
-	border: 1px solid #2AD986;
-	background: #2AD986;
-	border-radius: 12px;
-	overflow: hidden;
-	display: flex;
 	align-items: center;
-	justify-content: center;
-	width: auto;
+	justify-content: flex-start;
+	min-height: 100vh;
 
 }
-.image > img {
+
+.background {
+	position: absolute;
+	top: 0;
+	left: 0;
 	width: 100%;
 	height: auto;
-	max-height: 50vh;
-	width: auto;
+	object-fit: cover;
+	z-index: 0;
 }
 
-.input {
-	margin-top: 14px;
-	display: flex;
-	align-items: center;
-	gap: 14px;
-	background: rgba(255, 255, 255, 0.05);
-	border: 1px solid rgba(255, 255, 255, 0.05);
-	backdrop-filter: blur(4px);
-	padding: 8px;
-	border-radius: 12px;
-	padding-left: 12px;
-	transition: .3s;
-}
-.input:has(input:focus) {
-	box-shadow: 0 6px 24px 0 rgba(0, 144, 77, 0.2);
-	border: 1px solid rgba(42, 217, 135, 0.5);
-}
-.input input {
-	background: transparent;
-	padding: 0;
-	border: none;
-	font-size: 16px;
-	font-weight: 500;
-	letter-spacing: -.5px;
-	width: 300px;
-}
-
-.input input::placeholder {
-	color: rgba(255, 255, 255, 0.5);
-	font-weight: 500;
-}
-
-.input input:focus {
-	outline: none;
-}
-
-.input button {
-	border: none;
-	padding: 8px 16px;
-	background: linear-gradient(to right, #00904C, #2F7843);
-	border-radius: 10px;
-	border: 1px solid rgba(255, 255, 255, 0.15);
-	transition: .25s;
-	font-size: 14px;
-	font-weight: 500;
-	letter-spacing: -.5px;
-}
-
-.input button:hover {
-	box-shadow: 0 0 32px 0 rgba(0, 144, 77, 0.4);
-}
-
-@media (max-width: 768px) {
-	.page {
-		padding: 14px 14px;
-		padding-top: 44px;
-	}
-	.page > h1 {
-		font-size: 24px;
-		margin-bottom: 8px;
-	}
-	
-	.input {
-		width: 100%;
-		flex-wrap: nowrap;
-	}
-	.input button {
-		text-wrap: nowrap;
-	}
-
-	.input input {
-		width: 100%;
-	}
+.page > *:not(.background) {
+	z-index: 1;
 }
