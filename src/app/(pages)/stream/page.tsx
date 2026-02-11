@@ -19,6 +19,12 @@ function StreamContent() {
 	const [clips, setClips] = useState<{ url: string; name: string, thumbnail: string }[]>([]);
 	const [ffmpeg, setFfmpeg] = useState<any>(null);
 	const [isFfmpegLoaded, setIsFfmpegLoaded] = useState(false);
+	const [showCapModal, setShowCapModal] = useState(false);
+
+	const isValidPumpUrl = (url: string) => {
+		const trimmed = url.trim();
+		return trimmed.startsWith("https://pump.fun/") || trimmed.startsWith("http://pump.fun/") || trimmed.startsWith("pump.fun/");
+	};
 
 	useEffect(() => {
 		if (url && ffmpeg) {
@@ -336,11 +342,30 @@ function StreamContent() {
 		<div className={styles.page}>
 			<div className={styles.content}>
 
-				<div className={styles.input}>
-					<Image src="/pumpfun.png" alt="pumpfun" width={20} height={20} />
-					<input type="text" placeholder="Enter a Pump.fun stream link" value={inputUrl} onChange={(e) => setInputUrl(e.target.value)} />
-					<Link href={`/stream?url=${inputUrl}`}><button>{clips.length > 0 ? "Try another" : "Clip it"}</button></Link>
+			<div className={styles.input}>
+				<Image src="/pumpfun.png" alt="pumpfun" width={20} height={20} />
+				<input type="text" placeholder="Enter a Pump.fun stream link" value={inputUrl} onChange={(e) => setInputUrl(e.target.value)} />
+				<button
+					disabled={!isValidPumpUrl(inputUrl)}
+					onClick={() => setShowCapModal(true)}
+					className={!isValidPumpUrl(inputUrl) ? styles.disabled : ''}
+				>
+					{clips.length > 0 ? "Try another" : "Clip it"}
+				</button>
+			</div>
+
+			{showCapModal && (
+				<div className={styles.modalOverlay} onClick={() => setShowCapModal(false)}>
+					<div className={styles.modal} onClick={(e) => e.stopPropagation()}>
+						<div className={styles.modalIcon}>
+							<Image src="/logo.png" alt="Clipify" width={40} height={40} />
+						</div>
+						<h3>clip limit reached</h3>
+						<p>we've hit the 10 clip cap for this hour.<br/>come back soon — the AI never stops watching.</p>
+						<button onClick={() => setShowCapModal(false)}>got it</button>
+					</div>
 				</div>
+			)}
 				<div className={styles.editor}>
 					<div className={styles.selectedVideo}>
 						{
