@@ -361,7 +361,7 @@ function StreamContent() {
 							<Image src="/logo.png" alt="Clipify" width={40} height={40} />
 						</div>
 						<h3>clip limit reached</h3>
-						<p>we've hit the 10 clip cap for this hour.<br/>come back soon — the AI never stops watching.</p>
+						<p>the hourly cap of 10 clips has been reached.<br/>try again in a bit.</p>
 						<button onClick={() => setShowCapModal(false)}>got it</button>
 					</div>
 				</div>
