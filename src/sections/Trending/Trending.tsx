@@ -6,16 +6,18 @@ import Image from "next/image";
 import { FaCommentAlt } from "react-icons/fa";
 import Link from "next/link";
 import { app } from "@/sections/Hero/Hero";
-import { useState, useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 export default function Trending() {
-	const [isMobile, setIsMobile] = useState(false);
+	const containerRef = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
-		const check = () => setIsMobile(window.innerWidth <= 768);
-		check();
-		window.addEventListener("resize", check);
-		return () => window.removeEventListener("resize", check);
+		if (window.innerWidth <= 768) return;
+		const videos = containerRef.current?.querySelectorAll("video");
+		videos?.forEach((v) => {
+			v.muted = true;
+			v.play().catch(() => {});
+		});
 	}, []);
 	return (
 		<div className={styles.main}>
@@ -25,32 +27,32 @@ export default function Trending() {
 				<p>From link to viral-ready clip in just three steps.<br/>No editing, no wasted time just highlights.</p>
 			</div>
 
-			<div className={styles.clips}>
+			<div className={styles.clips} ref={containerRef}>
 
 				<Link href="https://x.com/c3ntilmen/status/1967141971711193122" target="_blank">
 				{/* 	<Image src="/clip/1.png" alt="Clip" width={428} height={652} /> */}
-					<video src="/clip/1.mp4" autoPlay={!isMobile} muted loop playsInline poster="/clip/1.png" />
+					<video src="/clip/1.mp4" muted loop playsInline poster="/clip/1.png" />
 					<p>
 						<FaCommentAlt />
 						<span>DAAMN</span>
 					</p>
 				</Link>
 				<Link href="hhttps://x.com/pumpfun_tv/status/1966406539163344973" target="_blank">
-				<video src="/clip/2.mp4" autoPlay={!isMobile} muted loop playsInline poster="/clip/2.png" />
+				<video src="/clip/2.mp4" muted loop playsInline poster="/clip/2.png" />
 					<p>
 						<FaCommentAlt />
 						<span>WTFFFF</span>
 					</p>
 				</Link>
 				<Link href="https://x.com/yoxics/status/1966240543819858356" target="_blank">
-				<video src="/clip/3.mp4" autoPlay={!isMobile} muted loop playsInline poster="/clip/3.png" />
+				<video src="/clip/3.mp4" muted loop playsInline poster="/clip/3.png" />
 					<p>
 						<FaCommentAlt />
 						<span>BIG W</span>
 					</p>
 				</Link>
 				<Link href="https://x.com/gainzy222/status/1966762539053695034" target="_blank">
-				<video src="/clip/4.mp4" autoPlay={!isMobile} muted loop playsInline poster="/clip/4.png" />
+				<video src="/clip/4.mp4" muted loop playsInline poster="/clip/4.png" />
 					<p>
 						<FaCommentAlt />
 						<span>That&apos;s Crazyy</span>
@@ -64,28 +66,28 @@ export default function Trending() {
 
 
 				<Link href="https://x.com/c3ntilmen/status/1967141971711193122" className={styles.hidden}>
-				<video src="/clip/1.mp4" autoPlay={!isMobile} muted loop playsInline poster="/clip/1.png" />
+				<video src="/clip/1.mp4" muted loop playsInline poster="/clip/1.png" />
 					<p>
 						<FaCommentAlt />
 						<span>DAAMN</span>
 					</p>
 				</Link>
 				<Link href="hhttps://x.com/pumpfun_tv/status/1966406539163344973" target="_blank" className={styles.hidden}>
-				<video src="/clip/2.mp4" autoPlay={!isMobile} muted loop playsInline poster="/clip/2.png" />
+				<video src="/clip/2.mp4" muted loop playsInline poster="/clip/2.png" />
 					<p>
 						<FaCommentAlt />
 						<span>WTFFFF</span>
 					</p>
 				</Link>
 				<Link href="https://x.com/yoxics/status/1966240543819858356" target="_blank" className={styles.hidden}>
-				<video src="/clip/3.mp4" autoPlay={!isMobile} muted loop playsInline poster="/clip/3.png" />
+				<video src="/clip/3.mp4" muted loop playsInline poster="/clip/3.png" />
 					<p>
 						<FaCommentAlt />
 						<span>BIG W</span>
 					</p>
 				</Link>
 				<Link href="https://x.com/gainzy222/status/1966762539053695034" target="_blank" className={styles.hidden}>
-				<video src="/clip/4.mp4" autoPlay={!isMobile} muted loop playsInline poster="/clip/4.png" />
+				<video src="/clip/4.mp4" muted loop playsInline poster="/clip/4.png" />
 					<p>
 						<FaCommentAlt />
 						<span>That&apos;s Crazyy</span>
