@@ -1,6 +1,7 @@
 import styles from "./page.module.css";
 import Image from "next/image";
 import Header from "@/components/Header/Header";
+import CABanner from "@/components/CABanner/CABanner";
 import Hero from "@/sections/Hero/Hero";
 import HowItWorks from "@/sections/HowItWorks/HowItWorks";
 import Trending from "@/sections/Trending/Trending";
@@ -12,6 +13,7 @@ export default function Home() {
 		<div className={styles.page}>
 			<Image src="/background.png" alt="Background" width={1920} height={1080} className={styles.background} />
 			<Header />
+			<CABanner />
 			<Hero />
 			<HowItWorks />
 			<Trending />

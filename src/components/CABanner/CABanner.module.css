@@ -1,0 +1,62 @@
+.banner {
+	width: 100%;
+	padding: 10px 0;
+	background: linear-gradient(to right, rgba(0, 144, 76, 0.1), rgba(47, 120, 67, 0.1));
+	border-top: 1px solid rgba(47, 120, 67, 0.3);
+	border-bottom: 1px solid rgba(47, 120, 67, 0.3);
+	cursor: pointer;
+	transition: 0.25s;
+}
+
+.banner:hover {
+	background: linear-gradient(to right, rgba(0, 144, 76, 0.18), rgba(47, 120, 67, 0.18));
+}
+
+.banner > p {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	font-size: 14px;
+	letter-spacing: -0.3px;
+}
+
+.label {
+	font-weight: 500;
+	color: rgba(237, 237, 237, 0.5);
+}
+
+.address {
+	font-family: monospace;
+	color: rgba(42, 217, 135, 1);
+	font-weight: 500;
+}
+
+.copy {
+	font-size: 12px;
+	color: rgba(237, 237, 237, 0.3);
+	margin-left: 4px;
+	transition: 0.25s;
+}
+
+.banner:hover .copy {
+	color: rgba(42, 217, 135, 0.7);
+}
+
+@media (max-width: 768px) {
+	.banner > p {
+		font-size: 11px;
+		padding: 0 14px;
+	}
+
+	.address {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		max-width: 180px;
+	}
+
+	.copy {
+		display: none;
+	}
+}

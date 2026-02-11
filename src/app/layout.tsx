@@ -20,6 +20,27 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
 	title: "Clipify",
 	description: "Drop a link. Get instant viral clips.",
+	openGraph: {
+		title: "Clipify",
+		description: "Drop a link. Get instant viral clips.",
+		url: "https://clipify-omega.vercel.app",
+		siteName: "Clipify",
+		images: [
+			{
+				url: "/og-image.png",
+				width: 1200,
+				height: 630,
+				alt: "Clipify - AI Clipper for Pump.fun",
+			},
+		],
+		type: "website",
+	},
+	twitter: {
+		card: "summary_large_image",
+		title: "Clipify",
+		description: "Drop a link. Get instant viral clips.",
+		images: ["/og-image.png"],
+	},
 };
 
 export default function RootLayout({
