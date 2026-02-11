@@ -11,14 +11,14 @@ export default function Header() {
 				<h1>Clipify</h1>
 			</Link>
 
-			<div className={styles.nav}>
-				<Link href={twitter}>Twitter</Link>
-				<Link href={chart}>View Chart</Link>
-				<Link href={buy}>
-					<button>Buy $CLIPIFY</button>
-				</Link>
+		<div className={styles.nav}>
+			<Link href={twitter}>X (Twitter)</Link>
+			<Link href={chart}>View Chart</Link>
+			<Link href={buy}>
+				<button>Buy $CLIPIFY</button>
+			</Link>
 
-			</div>
+		</div>
 		</div>
 	);
 }
