@@ -13,11 +13,28 @@ export default function Trending() {
 
 	useEffect(() => {
 		if (window.innerWidth <= 768) return;
+
+		const observer = new IntersectionObserver(
+			(entries) => {
+				entries.forEach((entry) => {
+					const video = entry.target as HTMLVideoElement;
+					if (entry.isIntersecting) {
+						video.play().catch(() => {});
+					} else {
+						video.pause();
+					}
+				});
+			},
+			{ threshold: 0.25 }
+		);
+
 		const videos = containerRef.current?.querySelectorAll("video");
 		videos?.forEach((v) => {
 			v.muted = true;
-			v.play().catch(() => {});
+			observer.observe(v);
 		});
+
+		return () => observer.disconnect();
 	}, []);
 	return (
 		<div className={styles.main}>
