@@ -345,6 +345,64 @@
 	box-shadow: 0 0 32px 0 rgba(0, 144, 77, 0.4);
 }
 
+.modalActions {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+}
+
+.notifyBtn {
+	background: transparent !important;
+	border: 1px solid rgba(42, 217, 135, 0.3) !important;
+	color: rgba(42, 217, 135, 1) !important;
+}
+
+.notifyBtn:hover {
+	background: rgba(42, 217, 135, 0.1) !important;
+	box-shadow: none !important;
+}
+
+.bell {
+	font-size: 14px;
+}
+
+.emailForm {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	width: 100%;
+}
+
+.emailInput {
+	flex: 1;
+	background: rgba(255, 255, 255, 0.05);
+	border: 1px solid rgba(42, 217, 135, 0.25);
+	border-radius: 10px;
+	padding: 10px 14px;
+	font-size: 14px;
+	font-weight: 400;
+	color: #ededed;
+	font-family: "Geist", sans-serif;
+	letter-spacing: -0.3px;
+	transition: 0.25s;
+}
+
+.emailInput::placeholder {
+	color: rgba(237, 237, 237, 0.3);
+}
+
+.emailInput:focus {
+	outline: none;
+	border-color: rgba(42, 217, 135, 0.5);
+	box-shadow: 0 0 16px rgba(0, 144, 77, 0.15);
+}
+
+.emailForm button:disabled {
+	opacity: 0.3;
+	cursor: not-allowed;
+}
+
 .tooltip {
 	position: relative;
 }

@@ -20,6 +20,9 @@ function StreamContent() {
 	const [ffmpeg, setFfmpeg] = useState<any>(null);
 	const [isFfmpegLoaded, setIsFfmpegLoaded] = useState(false);
 	const [showCapModal, setShowCapModal] = useState(false);
+	const [showNotifyForm, setShowNotifyForm] = useState(false);
+	const [notifyEmail, setNotifyEmail] = useState("");
+	const [notifySubmitted, setNotifySubmitted] = useState(false);
 
 	const isValidPumpUrl = (url: string) => {
 		const trimmed = url.trim();
@@ -355,14 +358,54 @@ function StreamContent() {
 			</div>
 
 			{showCapModal && (
-				<div className={styles.modalOverlay} onClick={() => setShowCapModal(false)}>
+				<div className={styles.modalOverlay} onClick={() => { setShowCapModal(false); setShowNotifyForm(false); setNotifySubmitted(false); }}>
 					<div className={styles.modal} onClick={(e) => e.stopPropagation()}>
 						<div className={styles.modalIcon}>
 							<Image src="/logo.png" alt="Clipify" width={40} height={40} />
 						</div>
-						<h3>clip limit reached</h3>
-						<p>the hourly cap of 10 clips has been reached.<br/>try again in a bit.</p>
-						<button onClick={() => setShowCapModal(false)}>got it</button>
+
+						{!showNotifyForm && !notifySubmitted && (
+							<>
+								<h3>clip limit reached</h3>
+								<p>the hourly cap of 10 clips has been reached.<br/>try again in a bit.</p>
+								<div className={styles.modalActions}>
+									<button onClick={() => setShowCapModal(false)}>got it</button>
+									<button className={styles.notifyBtn} onClick={() => setShowNotifyForm(true)}>
+										<span className={styles.bell}>🔔</span> notify me
+									</button>
+								</div>
+							</>
+						)}
+
+						{showNotifyForm && !notifySubmitted && (
+							<>
+								<h3>get notified</h3>
+								<p>drop your email and we'll let you know<br/>when clips are available again.</p>
+								<div className={styles.emailForm}>
+									<input
+										type="email"
+										placeholder="your@email.com"
+										value={notifyEmail}
+										onChange={(e) => setNotifyEmail(e.target.value)}
+										className={styles.emailInput}
+									/>
+									<button
+										onClick={() => { if (notifyEmail.includes('@')) setNotifySubmitted(true); }}
+										disabled={!notifyEmail.includes('@')}
+									>
+										submit
+									</button>
+								</div>
+							</>
+						)}
+
+						{notifySubmitted && (
+							<>
+								<h3>you're in</h3>
+								<p>we got it. we'll notify you as soon as<br/>new clips are ready to go.</p>
+								<button onClick={() => { setShowCapModal(false); setShowNotifyForm(false); setNotifySubmitted(false); }}>done</button>
+							</>
+						)}
 					</div>
 				</div>
 			)}
