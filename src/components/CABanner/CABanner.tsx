@@ -3,7 +3,7 @@
 import styles from "./CABanner.module.css";
 import { useState } from "react";
 
-const CA = "PLACEHOLDER_CONTRACT_ADDRESS";
+const CA = "Cpp1n5TSRM4r5WoWP2BnDWNDDfkja5Ss9MhwWepmpump";
 
 export default function CABanner() {
 	const [copied, setCopied] = useState(false);
