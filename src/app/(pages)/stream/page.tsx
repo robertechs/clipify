@@ -380,21 +380,19 @@ function StreamContent() {
 							</video>
 						}
 					</div>
-					<div className={styles.settings}>
-						<div className={styles.crop}>
-							<button onClick={() => cropLoadedClip('9:16')} className={cropRatio == '9:16' ? styles.selected : ''} disabled={isCropping}>
-								<div className={styles.ratio} /><span>9:16</span>
-							</button>
-							<button onClick={() => cropLoadedClip('16:9')} className={cropRatio == '16:9' ? styles.selected : ''} disabled={isCropping}>
-								<div className={styles.ratio} /><span>16:9</span>
-							</button>
-							<button onClick={() => cropLoadedClip('1:1')} className={cropRatio == '1:1' ? styles.selected : ''} disabled={isCropping}>
-								<div className={styles.ratio} /><span>1:1</span>
-							</button>
-						</div>
-						
-						<button onClick={download} disabled={isCropping} className={styles.download}>Download</button>
+				<div className={styles.settings}>
+					<div className={styles.crop}>
+						<button onClick={() => { setCropRatio('9:16'); if (loadedClip) cropLoadedClip('9:16'); }} className={cropRatio == '9:16' ? styles.selected : ''}>
+							<div className={styles.ratio} /><span>9:16</span>
+						</button>
+						<button onClick={() => { setCropRatio('16:9'); if (loadedClip) cropLoadedClip('16:9'); }} className={cropRatio == '16:9' ? styles.selected : ''}>
+							<div className={styles.ratio} /><span>16:9</span>
+						</button>
+						<button onClick={() => { setCropRatio('1:1'); if (loadedClip) cropLoadedClip('1:1'); }} className={cropRatio == '1:1' ? styles.selected : ''}>
+							<div className={styles.ratio} /><span>1:1</span>
+						</button>
 					</div>
+				</div>
 
 				</div>
 			</div>
