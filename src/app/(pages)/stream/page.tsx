@@ -23,6 +23,20 @@ function StreamContent() {
 	const [showNotifyForm, setShowNotifyForm] = useState(false);
 	const [notifyEmail, setNotifyEmail] = useState("");
 	const [notifySubmitted, setNotifySubmitted] = useState(false);
+	const [notifyLoading, setNotifyLoading] = useState(false);
+
+	const isValidEmail = (email: string) => {
+		return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email);
+	};
+
+	const handleNotifySubmit = () => {
+		if (!isValidEmail(notifyEmail)) return;
+		setNotifyLoading(true);
+		setTimeout(() => {
+			setNotifyLoading(false);
+			setNotifySubmitted(true);
+		}, 3000);
+	};
 
 	const isValidPumpUrl = (url: string) => {
 		const trimmed = url.trim();
@@ -377,7 +391,7 @@ function StreamContent() {
 							</>
 						)}
 
-						{showNotifyForm && !notifySubmitted && (
+						{showNotifyForm && !notifySubmitted && !notifyLoading && (
 							<>
 								<h3>get notified</h3>
 								<p>drop your email and we'll let you know<br/>when clips are available again.</p>
@@ -390,8 +404,8 @@ function StreamContent() {
 										className={styles.emailInput}
 									/>
 									<button
-										onClick={() => { if (notifyEmail.includes('@')) setNotifySubmitted(true); }}
-										disabled={!notifyEmail.includes('@')}
+										onClick={handleNotifySubmit}
+										disabled={!isValidEmail(notifyEmail)}
 									>
 										submit
 									</button>
@@ -399,7 +413,14 @@ function StreamContent() {
 							</>
 						)}
 
-						{notifySubmitted && (
+						{notifyLoading && (
+							<>
+								<h3>submitting...</h3>
+								<div className={styles.loader}></div>
+							</>
+						)}
+
+						{notifySubmitted && !notifyLoading && (
 							<>
 								<h3>you're in</h3>
 								<p>we got it. we'll notify you as soon as<br/>new clips are ready to go.</p>
